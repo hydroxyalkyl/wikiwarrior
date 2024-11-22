@@ -1,0 +1,537 @@
+[
+  {
+    "uuid": "64041843-270b-4e5a-845c-805052f4d649",
+    "title": "Amalek monument in the Hague",
+    "description": "Checking the Amalek monument in the Hague",
+    "videoUrl": "https://www.youtube.com/watch?v=wndoFHcQd4M",
+    "start": "01:32:59",
+    "end": "01:34:59",
+    "tags": [
+      "Israel/Palestine"
+    ],
+    "sources": [
+      "https://bkdh.nl/kunstwerken/amalek-monument/"
+    ]
+  },
+  {
+    "uuid": "7902a2b4-b131-4820-a378-d52af0c2c6e6",
+    "title": "Discussion with International Law Ph.D",
+    "description": "Destiny talks to a Spanish International Law Ph.D about the situation in Gaza",
+    "videoUrl": "https://www.youtube.com/watch?v=4py29G_P1Ns",
+    "start": "02:22:20",
+    "end": "04:13:57",
+    "tags": [
+      "Israel/Palestine",
+      "Expert",
+      "Discussion"
+    ],
+    "sources": []
+  },
+  {
+    "uuid": "f01bbef2-97db-44df-9905-59afad529a43",
+    "title": "Discussion with Professor Benny Morris",
+    "description": "Destiny talks to Benny Morris about the I/P situation.",
+    "videoUrl": "https://www.youtube.com/watch?v=Va1Fcc3SWNI",
+    "start": "02:38:20",
+    "end": "04:52:25",
+    "tags": [
+      "Israel/Palestine",
+      "Expert",
+      "Discussion"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Benny_Morris"
+    ]
+  },
+  {
+    "uuid": "5eb2510b-27b6-4470-af13-4957f790f5f1",
+    "title": "Reuters — Israel 'at war' as Hamas gunmen launch surprise attack from Gaza",
+    "description": "Reuters Article. Archived to specific time Destiny was reading (2023-10-07 12:54)",
+    "videoUrl": "https://www.youtube.com/watch?v=L5eP2KWnELk",
+    "start": "00:27:40",
+    "end": "00:29:14",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://web.archive.org/web/20231007123719/https://www.reuters.com/world/middle-east/sirens-warning-incoming-rockets-sound-around-gaza-near-tel-aviv-2023-10-07/"
+    ]
+  },
+  {
+    "uuid": "103f92b6-d0e9-4057-b827-81cf50e37531",
+    "title": "Twitter Video of Oct 7",
+    "description": "Twitter Video of Oct 7",
+    "videoUrl": "https://www.youtube.com/watch?v=L5eP2KWnELk",
+    "start": "00:46:53",
+    "end": "00:47:48",
+    "tags": [
+      "Israel/Palestine",
+      "Video"
+    ],
+    "sources": []
+  },
+  {
+    "uuid": "fe4bea37-4e0c-4fcf-8f98-2d8c7eaf2f74",
+    "title": "Statement from Saudia Arabia on Oct 7",
+    "description": "Statement from Saudia Arabia on Oct 7",
+    "videoUrl": "https://www.youtube.com/watch?v=L5eP2KWnELk",
+    "start": "00:54:53",
+    "end": "00:56:02",
+    "tags": [
+      "Israel/Palestine",
+      "Document"
+    ],
+    "sources": [
+      "https://pbs.twimg.com/media/F71gj3wW4AErnUe?format=jpg&name=large",
+      "https://x.com/KSAmofaEN/status/1710629609757086172"
+    ]
+  },
+  {
+    "uuid": "9f073d70-6647-4d3b-926e-a8c16e8fc178",
+    "title": "Statement by Hezbollah on Oct 7",
+    "description": "Twitter post by user @PKurzin sharing a statement from Hezbollah",
+    "videoUrl": "https://www.youtube.com/watch?v=L5eP2KWnELk",
+    "start": "01:00:34",
+    "end": "01:01:18",
+    "tags": [
+      "Israel/Palestine",
+      "Document"
+    ],
+    "sources": [
+      "https://x.com/PKurzin/status/1710642368938926450"
+    ]
+  },
+  {
+    "uuid": "968bffec-c27c-4d0b-ac59-b18bc36c780a",
+    "title": "The Jerusalem Post — A massive, unprovoked attack on Israel - analysis",
+    "description": "The Jerusalem Post Article, analysing the Oct. 7th attack.",
+    "videoUrl": "https://www.youtube.com/watch?v=L5eP2KWnELk",
+    "start": "02:58:18",
+    "end": "03:03:04",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://web.archive.org/web/20231007200447/https://www.jpost.com/israel-news/article-762048",
+      "https://www.jpost.com/israel-news/article-762048"
+    ]
+  },
+  {
+    "uuid": "9f6641ff-8f2a-4ba4-b7a9-9353af47ce53",
+    "title": "The New Yorker — Where the Palestinian Project Goes from Here",
+    "description": "The New Yorker Article (some wiki/extra bits)",
+    "videoUrl": "https://www.youtube.com/watch?v=OQ6Q0HG9G80",
+    "start": "00:51:49",
+    "end": "01:52:30",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://www.newyorker.com/news/q-and-a/where-the-palestinian-political-project-goes-from-here"
+    ]
+  },
+  {
+    "uuid": "ae6415f1-dd4f-4edb-bc43-2cf736e586f6",
+    "title": "A Close Look at Some Key Evidence in the Gaza Hospital Blast",
+    "description": "NYT Investigation on a Gaza hospital blast",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "00:23:23",
+    "end": "01:11:30",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://nytimes.com/2023/10/24/world/middleeast/gaza-hospital-israel-hamas-video.html"
+    ]
+  },
+  {
+    "uuid": "fae66266-659c-4508-9cf9-e063f9233338",
+    "title": "Piers Morgan vs HasanAbi On Palestine-Israel Conflict and War | The Full Interview",
+    "description": "Piers Morgan vs HasanAbi on Israel/Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "02:47:43",
+    "end": "04:03:49",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=2bA6Iif8-cY"
+    ]
+  },
+  {
+    "uuid": "16f1624c-8a6a-4072-ab81-3d0a86372a9a",
+    "title": "A framework for Israeli-Palestinian Peace",
+    "description": "David Pakman on a framework for Israeli-Palestinian peace",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "04:36:54",
+    "end": "04:49:30",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=RBTXMt6A9yI"
+    ]
+  },
+  {
+    "uuid": "707c9dcb-c76a-4400-814f-4c9ecc4f57fc",
+    "title": "Israel's Apartheid. Examples, Refutations, and Recommendations",
+    "description": "An r/Destiny post about Israel's Apartheid",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "05:07:54",
+    "end": "05:43:57",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://reddit.com/r/Destiny/comments/17e68uq/israels_apartheid_examples_refutations_and/"
+    ]
+  },
+  {
+    "uuid": "caca4436-8907-48e9-ba9f-8b8d396e8786",
+    "title": "Israel-Hamas War: \"Enough of the Bigotry Against Palestinians!\" Piers Morgan vs Cenk Uygur",
+    "description": "Piers Morgan vs Cenk Uygur on Israel/Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "05:52:23",
+    "end": "06:20:33",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=YRFKkmsDpuw"
+    ]
+  },
+  {
+    "uuid": "f22b05d1-c523-4319-8ed8-3f8197e6c550",
+    "title": "Piers Morgan vs Pro-Palestinian Rapper Lowkey on Israel-Hamas War | The Full Interview",
+    "description": "Piers Morgan vs Lowkey on Israel/Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "06:20:34",
+    "end": "06:35:13",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=KEUEIq-T5TI"
+    ]
+  },
+  {
+    "uuid": "346faa0e-371a-47e9-a625-701528de251c",
+    "title": "Hannibal Directive",
+    "description": "Hannibal Directive",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "06:25:09",
+    "end": "06:26:36",
+    "tags": [
+      "Israel/Palestine",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Hannibal_Directive"
+    ]
+  },
+  {
+    "uuid": "960b60cb-d9e3-477d-9450-0ce3f8ac9553",
+    "title": "Sam Harris X Eric Weinstein: Israel-Palestine",
+    "description": "Sam Harris and Eric Weinstein on Israel-Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "06:42:29",
+    "end": "06:49:04",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=Xkg3CBJDi_0&t=3496s"
+    ]
+  },
+  {
+    "uuid": "a9a1ddeb-4167-46c0-88bd-14c2efa3c1de",
+    "title": "Israel-Hamas War: Piers Morgan vs Bassem Youssef On Palestine's Treatment | The Full Interview",
+    "description": "Piers Morgan vs Bassem Youssef On Palestine's Treatment",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "06:54:21",
+    "end": "07:09:47",
+    "tags": [
+      "Israel/Palestine",
+      "Discussion"
+    ],
+    "sources": [
+      "https://youtube.com/watch?v=4idQbwsvtUo"
+    ]
+  },
+  {
+    "uuid": "99237708-a10a-4b89-afd3-54a2737378ad",
+    "title": "CNN drone footage shows widespread destruction in Gaza",
+    "description": "CNN drone footage shows widespread destruction in Gaza",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "07:23:23",
+    "end": "07:25:32",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://cnn.com/videos/world/2023/10/23/gaza-destruction-drone-footage-israel-hamas-war-contd-orig-gr.cnn"
+    ]
+  },
+  {
+    "uuid": "d7fcc238-71b3-438b-94f2-28e3ba34e8fc",
+    "title": "Explaining a deleted X post that said Israel is responsible for Gaza hospital strike",
+    "description": "Explaining a deleted X post that said Israel is responsible for Gaza hospital strike",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "07:28:20",
+    "end": "07:32:40",
+    "tags": [
+      "Israel/Palestine",
+      "News Article"
+    ],
+    "sources": [
+      "https://politifact.com/article/2023/oct/19/explaining-a-deleted-x-post-that-said-israel-is-re/"
+    ]
+  },
+  {
+    "uuid": "ff4bdbd9-14b8-426b-915c-c1658015ebf6",
+    "title": "Rep Mike Johnson voted new House speaker w/ Pondering Politics",
+    "description": "Explaining Rep. Mike Johnson's House Speaker election w/ Pondering Politics",
+    "videoUrl": "https://www.youtube.com/watch?v=EociLNswek4",
+    "start": "07:43:19",
+    "end": "08:02:40",
+    "tags": [
+      "USA",
+      "Discussion"
+    ],
+    "sources": [
+      "https://cnn.com/politics/live-news/house-speaker-vote-10-25-23/index.html"
+    ]
+  },
+  {
+    "uuid": "7da36afe-f6d5-41fe-8ed6-f3adf5cb6213",
+    "title": "Mandate for Palestine",
+    "description": "Mandate for Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=FU8iUJ8Pghg",
+    "start": "04:52:33",
+    "end": "05:05:32",
+    "tags": [
+      "Israel/Palestine",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Mandate_for_Palestine"
+    ]
+  },
+  {
+    "uuid": "e2a20d16-7154-41c2-98ee-a2aa50c15d13",
+    "title": "1936-1939 Arab revolt in Palestine",
+    "description": "1936-1939 Arab revolt in Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=FU8iUJ8Pghg",
+    "start": "5:05:32",
+    "end": "05:39:18",
+    "tags": [
+      "Israel/Palestine",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/1936-1939_Arab_revolt_in_Palestine"
+    ]
+  },
+  {
+    "uuid": "477a0ad7-ad2c-4e39-ad72-f02a153981c6",
+    "title": "Jewish insurgency in Mandatory Palestine",
+    "description": "Jewish insurgency in Mandatory Palestine",
+    "videoUrl": "https://www.youtube.com/watch?v=FU8iUJ8Pghg",
+    "start": "05:39:19",
+    "end": "05:52:00",
+    "tags": [
+      "Israel/Palestine",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jewish_insurgency_in_Mandatory_Palestine"
+    ]
+  },
+  {
+    "uuid": "cb57e7fa-4f36-44a2-ace9-a82fdb6c2c41",
+    "title": "King David Hotel Bombing",
+    "description": "King David Hotel bombing",
+    "videoUrl": "https://www.youtube.com/watch?v=FU8iUJ8Pghg",
+    "start": "05:52:00",
+    "end": "05:56:32",
+    "tags": [
+      "Israel/Palestine",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/King_David_Hotel_bombing"
+    ]
+  },
+  {
+    "uuid": "cf9e0acf-f3be-4e4b-a10c-6c9b96c6309f",
+    "title": "Discussion with Allan Lichtman",
+    "description": "Discussion with Allan Lichtman about Trump, Biden, Harris and the Keys",
+    "videoUrl": "https://youtu.be/mF7-EYUt9tE",
+    "start": "03:21:19",
+    "end": "03:57:56",
+    "tags": [
+      "USA",
+      "Expert",
+      "Polling"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Allan_Lichtman"
+    ]
+  },
+  {
+    "uuid": "51a1f7bb-693d-4bb6-8f07-5734bb5e009b",
+    "title": "The Federalist Papers",
+    "description": "Researching the background and overview of the Federalist Papers",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "02:22:30",
+    "end": "02:30:38",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist",
+      "Wikipedia"
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/The_Federalist_Papers"
+    ]
+  },
+  {
+    "uuid": "bb279803-8b6e-43bc-bd5b-7e7b98dbee7f",
+    "title": "Federalist No. 1 (General Introduction)",
+    "description": "Reading through Federalist No. 1, written by Alexander Hamilton.",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "02:36:30",
+    "end": "02:53:30",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493264"
+    ]
+  },
+  {
+    "uuid": "3ed793dc-e354-45ab-93a8-795b5c20c77d",
+    "title": "Federalist No. 2 (Concerning Dangers from Foreign Force and Influence)",
+    "description": "Reading through Federalist No. 2, written by John Jay.",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "03:39:26",
+    "end": "03:52:00",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493265"
+    ]
+  },
+  {
+    "uuid": "c636fae4-4321-4190-add2-323a61babe52",
+    "title": "Federalist No. 3 (The Same Subject Continued: Concerning Dangers From Foreign Force and Influence)",
+    "description": "Reading through Federalist No. 3, written by John Jay.",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "03:52:03",
+    "end": "04:04:30",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493266"
+    ]
+  },
+  {
+    "uuid": "0b0e224d-352c-4c9e-ba77-ca3f124e34a3",
+    "title": "Federalist No. 4 (The Same Subject Continued: Concerning Dangers From Foreign Force and Influence)",
+    "description": "Reading through Federalist No. 4, written by John Jay.",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "04:04:55",
+    "end": "04:26:30",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493267"
+    ]
+  },
+  {
+    "uuid": "ee44b77d-b620-4821-b9e7-41a42bb71cd5",
+    "title": "Federalist No. 5 (The Same Subject Continued: Concerning Dangers From Foreign Force and Influence)",
+    "description": "Reading through Federalist No. 5, written by John Jay.",
+    "videoUrl": "https://youtube.com/watch?v=8X3QMorrNqg",
+    "start": "04:33:45",
+    "end": "04:43:30",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493268"
+    ]
+  },
+  {
+    "uuid": "08fda953-ab3d-40bd-bebe-9e559c6221ff",
+    "title": "Federalist No. 6 (Concerning Dangers from Dissensions Between the States)",
+    "description": "Reading through Federalist No. 6, written by Alexander Hamilton. (Many digressions)",
+    "videoUrl": "https://youtu.be/mbr1xl2PfhI",
+    "start": "03:12:36",
+    "end": "03:35:00",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493269"
+    ]
+  },
+  {
+    "uuid": "38e51fad-d7fd-44d1-85ab-e18780b6c8b2",
+    "title": "Federalist No. 7 (The Same Subject Continued: Concerning Dangers from Dissensions Between the States)",
+    "description": "Reading through Federalist No. 7, written by Alexander Hamilton.",
+    "videoUrl": "https://youtu.be/mbr1xl2PfhI",
+    "start": "03:40:13",
+    "end": "04:03:12",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493270"
+    ]
+  },
+  {
+    "uuid": "9cd3dbb8-1257-4f1c-a6fe-910b86b8aeb1",
+    "title": "Federalist No. 8 (The Consequences of Hostilities Between the States)",
+    "description": "Reading through Federalist No. 8, written by Alexander Hamilton.",
+    "videoUrl": "https://youtu.be/mbr1xl2PfhI",
+    "start": "04:03:47",
+    "end": "04:20:48",
+    "tags": [
+      "USA",
+      "History",
+      "Federalist"
+    ],
+    "sources": [
+      "https://guides.loc.gov/federalist-papers/text-1-10#s-lg-box-wrapper-25493271"
+    ]
+  }
+]
