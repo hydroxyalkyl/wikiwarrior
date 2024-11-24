@@ -2,7 +2,7 @@ function AboutPage() {
     return <div style={{ maxWidth: "80ch" }}>
         <section>
             <h1>About</h1>
-            <p>Due to a plethora of accusations that Destiny is simply a wiki-warrior, I thought about making this website to track if that's true. It is meant to be a crowd-sourced clip tracker of all the research he has done.</p>
+            <p>Due to a plethora of accusations that Destiny is simply a wiki-warrior, I thought about making this website to track if that's true. It is meant to be a crowd-sourced clip tracker of all the research he has done. The compiling is not complete and there is still a lot of research data/clips to add.</p>
             <br />
         </section>
 
