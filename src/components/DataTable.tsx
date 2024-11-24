@@ -14,7 +14,7 @@ import {extractVideoIdFromUrl, parseVodDataJson} from "../utils/vod-data-parser.
 import {useNavigate} from "react-router-dom";
 import jsonDataList from "../assets/clip-data.json"
 import {Temporal} from "@js-temporal/polyfill";
-import {parseTimeStringToDuration} from "../utils/time-conversion.ts";
+import {parseDurationToTimeString, parseTimeStringToDuration} from "../utils/time-conversion.ts";
 
 function DataTable() {
     const {settingsData} = useContext(SettingsContext);
@@ -146,6 +146,7 @@ function retrieveQuanta() {
         const startTemporal = parseTimeStringToDuration(jsonQuantum.start);
         const endTemporal = parseTimeStringToDuration(jsonQuantum.end);
         return {
+            ...(await parseVodDataJson(`stream-data/${videoId}.info.json`) ?? {}),
             uuid: jsonQuantum.uuid,
             clipTitle: jsonQuantum.title,
             videoUrl: jsonQuantum.videoUrl,
@@ -153,13 +154,12 @@ function retrieveQuanta() {
             startSeconds: startTemporal.total("seconds"),
             end: jsonQuantum.end,
             endSeconds: endTemporal.total("seconds"),
-            duration: endTemporal.subtract(startTemporal).toString(),
+            duration: parseDurationToTimeString(endTemporal.subtract(startTemporal)),
             tags: jsonQuantum.tags,
-            ...(await parseVodDataJson(`stream-data/${videoId}.info.json`) ?? {})
         }
     })).then(researchQuanta => researchQuanta.map(researchQuantum => {
         return {
-            vodTitle: researchQuantum.title ?? "N/A",
+            vodTitle: researchQuantum.title ?? extractVideoIdFromUrl(researchQuantum.videoUrl),
             vodFriendlyDate: researchQuantum.releaseTimestamp 
                 ? Temporal.Instant
                     .fromEpochSeconds(researchQuantum.releaseTimestamp)
