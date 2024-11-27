@@ -66,7 +66,7 @@ function HomePage() {
             <div className="gap-5 d-flex mb-4 justify-content-center">
                 {
                     externalLinks.map(elem =>
-                        <a target="_blank" href={elem.href} className="icon-link d-flex flex-column">
+                        <a target="_blank" href={elem.href} className="icon-link d-flex flex-column" key={elem.href}>
                             {elem.icon}
                             <span>{elem.displayText}</span>
                         </a>
@@ -78,6 +78,6 @@ function HomePage() {
             {openedQuanta && <ClipModal isOpen={true} onClose={onClose} data={openedQuanta}/>}
         </>
     );
-};
+}
 
 export {HomePage};

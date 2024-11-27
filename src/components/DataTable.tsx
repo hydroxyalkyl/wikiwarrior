@@ -1,108 +1,199 @@
 import {Table} from "react-bootstrap";
-import React, {useContext, useEffect, useState} from "react";
-import NewResearchQuantum from "../NewResearchQuantum.ts";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import {
     createColumnHelper,
     flexRender,
     getCoreRowModel,
     getSortedRowModel,
+    Row,
     useReactTable
 } from "@tanstack/react-table";
 import HorizontalPillStack from "./HorizontalPillStack.tsx";
 import {SettingsContext} from "../contexts/SettingsContext.tsx";
-import {extractVideoIdFromUrl, parseVodDataJson} from "../utils/vod-data-parser.ts";
+import {extractVideoIdFromUrl, parseVodDataJson, VODMetadata} from "../utils/vod-data-parser.ts";
 import {useNavigate} from "react-router-dom";
-import jsonDataList from "../assets/clip-data.json"
+import jsonDataList from "../assets/clip-data.json";
 import {Temporal} from "@js-temporal/polyfill";
 import {parseDurationToTimeString, parseTimeStringToDuration} from "../utils/time-conversion.ts";
+import ResearchQuanta from "../ResearchQuanta.ts";
+import {ArrowDown, ArrowDownUp, ArrowUp} from "react-bootstrap-icons";
+import Duration = Temporal.Duration;
+
+function durationSortingFn(rowA: Row<ResearchQuanta>, rowB: Row<ResearchQuanta>, columnId: string) {
+    return Duration.compare(rowA.getValue(columnId), rowB.getValue(columnId))
+}
 
 function DataTable() {
     const {settingsData} = useContext(SettingsContext);
 
     const navigate = useNavigate();
-    const handleRowClick = (quantum: NewResearchQuantum) => () => {
 
-        // Prevent navigation if text is selected
-        const selection = window.getSelection();
+    const handleRowClick = (quantum: ResearchQuanta) => () => {
+        // Prevent navigation/opening the modal if text is selected
+        // i.e. the user is just selecting some text from the row
 
-        if (selection && selection.toString().length > 0) {
-            return;
+        // Check if the selection both exists and is non-empty
+        if (!window.getSelection()?.toString()) {
+            navigate(`/clip/${quantum.uuid}`);
         }
-
-        navigate(`/clip/${quantum.uuid}`);
     };
 
     const handleStopPropagation = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
 
-    // Use this if you want to retrieve NewResearchQuanta objects from a backend
-    // function callBackend() {
-    //     return fetch('http://localhost:8000/research-quanta/')
-    //         .then(response => response.json());
-    // }
+    const [researchQuantaData, setResearchQuantaData] = useState<ResearchQuanta[]>([]);
 
-    const [researchQuanta, setResearchQuanta] = useState<NewResearchQuantum[]>([]);
+    // Initially populate the data array
     useEffect(() => {
-        // callBackend()
-        //     .then(setResearchQuanta)
-        //     .catch((e: unknown) => {
-        //         console.error(e)
-        //     })
-        retrieveQuanta()
-            .then(setResearchQuanta)
-            .catch((e: unknown) => {
-                console.error(e)
-            })
+        setResearchQuantaData(jsonDataList);
     }, []);
 
-    const VOD_TITLE_LEN = 20;
-    const truncateVodTitle = (vodTitle: string) => vodTitle.length > VOD_TITLE_LEN
-        ? vodTitle.substring(0, VOD_TITLE_LEN - 3) + "..."
-        : vodTitle;
 
-    const videoUrlAtTime = (videoUrl: string, atTime: number) => `${videoUrl}&t=${atTime}`
+    const [vodMetadataCache, setVodMetadataCache] = useState<Map<string, VODMetadata>>(new Map());
 
-    const columnHelper = createColumnHelper<NewResearchQuantum>();
+    const cacheRef = useRef(vodMetadataCache); // Use ref to maintain a mutable cache.
+
+    useEffect(() => {
+        const fetchVodMetadata = async () => {
+
+            // Create a local copy of the cache to avoid stale state issues
+            const updatedCache = new Map(cacheRef.current);
+
+            for (const quanta of researchQuantaData) {
+                const videoId = extractVideoIdFromUrl(quanta.videoUrl);
+
+                if (updatedCache.has(videoId)) {
+                    continue;
+                }
+
+                try {
+                    const data = await parseVodDataJson(`stream-data/${videoId}.info.json`);
+                    updatedCache.set(videoId, data);
+                } catch {
+                    console.error(`Failed to fetch metadata for video ${videoId}`);
+                }
+            }
+
+            setVodMetadataCache(updatedCache);
+        };
+
+        if (researchQuantaData.length > 0) {
+            void fetchVodMetadata();
+        }
+    }, [researchQuantaData]);
+
+
+    const DEFAULT_VOD_TITLE_CUTOFF_LEN = 20;
+
+    const truncateVodTitle = (vodTitle: string, length: number = DEFAULT_VOD_TITLE_CUTOFF_LEN): string => {
+        if (vodTitle.length > length) {
+            return vodTitle.substring(0, length - 3) + "...";
+        } else {
+            return vodTitle;
+        }
+    }
+
+    const videoUrlAtTime = (videoUrl: string, seconds: number) => `${videoUrl}&t=${seconds}`
+
+    const columnHelper = createColumnHelper<ResearchQuanta>();
 
     const columns = [
-        columnHelper.accessor("vodFriendlyDate", {
-            header: "Date",
-        }),
-        columnHelper.accessor("vodTitle", {
+        columnHelper.accessor("videoUrl", {
+            id: "vod",
             header: "VOD",
-            cell: info => <a href={info.row.original.videoUrl}
-                             onClick={handleStopPropagation}>{truncateVodTitle(info.getValue())}</a>
-        }),
-        columnHelper.accessor("start", {
-            header: "Start",
-            cell: info => <a href={videoUrlAtTime(info.row.original.videoUrl, info.row.original.startSeconds)}
-                             onClick={handleStopPropagation}>{info.getValue()}</a>
-        }),
-        columnHelper.accessor("end", {
-            header: "End",
-            cell: info => <a href={videoUrlAtTime(info.row.original.videoUrl, info.row.original.endSeconds)}
-                             onClick={handleStopPropagation}>{info.getValue()}</a>
-        }),
-        columnHelper.accessor("duration", {
-            header: "Duration",
-        }),
-        columnHelper.accessor("clipTitle", {
-            header: "Title",
-            cell: info =>
-                <div style={{display: "flex", gap: "0.5em", alignItems: "center"}}>
-                    <span>{info.getValue()}</span>
-                    {settingsData.showPillsInTable as boolean && <HorizontalPillStack elems={info.row.original.tags}/>}
-                </div>
-        }),
-    ]
+            cell: props => {
+                const videoId = extractVideoIdFromUrl(props.getValue());
+                return <a
+                    href={props.getValue()}
+                    target="_blank"
+                    onClick={handleStopPropagation}
+                    style={{textDecoration: "none"}}
+                >
+                    {truncateVodTitle(vodMetadataCache.get(videoId)?.title ?? videoId)}
+                </a>
+            },
+            sortingFn: (rowA, rowB, columnId) => {
+                // This hefty function is to make sure we're comparing the right value for each row.
+                // Some rows will have VOD Video IDs, whereas some rows will have VOD titles.
+                // localeCompare is already case-insensitive.
 
-    const table = useReactTable<NewResearchQuantum>({
+                const videoIdRowA = extractVideoIdFromUrl(rowA.getValue(columnId))
+                const valueToCompareRowA = vodMetadataCache.get(videoIdRowA)?.title ?? videoIdRowA;
+
+                const videoIdRowB = extractVideoIdFromUrl(rowB.getValue(columnId))
+                const valueToCompareRowB = vodMetadataCache.get(videoIdRowB)?.title ?? videoIdRowB;
+
+                return valueToCompareRowA.localeCompare(valueToCompareRowB)
+            }
+        }),
+
+        columnHelper.accessor(props => parseTimeStringToDuration(props.start), {
+            id: "start",
+            header: "Start",
+            sortingFn: durationSortingFn,
+            cell: props => (
+                <a
+                    target="_blank"
+                    href={videoUrlAtTime(props.row.original.videoUrl, props.getValue().total("seconds"))}
+                    onClick={handleStopPropagation}
+                    style={{textDecoration: "none"}}
+                >
+                    {parseDurationToTimeString(props.getValue())}
+                </a>
+            ),
+        }),
+
+        columnHelper.accessor(row => parseTimeStringToDuration(row.end), {
+            id: "end",
+            header: "End",
+            sortingFn: durationSortingFn,
+            cell: props => (
+                <a
+                    target="_blank"
+                    href={videoUrlAtTime(props.row.original.videoUrl, props.getValue().total("seconds"))}
+                    onClick={handleStopPropagation}
+                    style={{textDecoration: "none"}}
+                >
+                    {parseDurationToTimeString(props.getValue())}
+                </a>
+            ),
+        }),
+
+        columnHelper.accessor(row => parseTimeStringToDuration(row.end).subtract(parseTimeStringToDuration(row.start)), {
+            id: "duration",
+            header: "Duration",
+            sortingFn: durationSortingFn,
+            cell: props => <span>{parseDurationToTimeString(props.getValue())}</span>,
+        }),
+
+        columnHelper.accessor("title", {
+            header: "Title",
+            id: "title",
+            cell: props => (
+                <div style={{display: "flex", gap: "0.5em", alignItems: "center"}}>
+                    <span>{props.getValue()}</span>
+                    {settingsData.showPillsInTable ? <HorizontalPillStack elems={props.row.original.tags}/> : <></>}
+                </div>
+            ),
+            sortingFn: (rowA, rowB, columnId) => {
+                // This function is needed to make numbers come before strings in the sorting.
+
+                const titleRowA: string = rowA.getValue(columnId);
+                const titleRowB: string = rowB.getValue(columnId);
+
+                return titleRowA.localeCompare(titleRowB);
+            }
+        }),
+    ];
+
+    const table = useReactTable<ResearchQuanta>({
         columns,
-        data: researchQuanta,
+        data: researchQuantaData,
         debugTable: true,
         getCoreRowModel: getCoreRowModel(),
-        getSortedRowModel: getSortedRowModel()
+        getSortedRowModel: getSortedRowModel(),
+        sortDescFirst: false,
     })
 
     return <Table hover id="research-table">
@@ -110,9 +201,17 @@ function DataTable() {
         {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
                 {headerGroup.headers.map(header => {
+                    const sortStatus = header.column.getIsSorted()
                     return (
-                        <th key={header.id} colSpan={header.colSpan} scope="col"
-                            onClick={header.column.getToggleSortingHandler()}>
+                        <th key={header.id}
+                            colSpan={header.colSpan}
+                            scope="col"
+                            onClick={header.column.getToggleSortingHandler()}
+                            style={{cursor: "pointer"}}
+
+                        >
+                            {sortStatus == "asc" ? <ArrowUp/> : sortStatus == "desc" ? <ArrowDown/> : <ArrowDownUp/>}
+                            &nbsp;
                             {flexRender(header.column.columnDef.header, header.getContext())}
                         </th>
                     )
@@ -121,55 +220,17 @@ function DataTable() {
         ))}
         </thead>
         <tbody>
-        {table.getRowModel().rows.map(row => {
-            return (
-                <tr key={row.id} onClick={handleRowClick(row.original)}>
-                    {row.getVisibleCells().map(visibleCell => {
-                        return (
-                            <td key={visibleCell.id}>
-                                {flexRender(
-                                    visibleCell.column.columnDef.cell,
-                                    visibleCell.getContext())}
-                            </td>
-                        )
-                    })}
-                </tr>
-            )
-        })}
+        {table.getRowModel().rows.map(row => (
+            <tr key={row.id} onClick={handleRowClick(row.original)} style={{cursor: "pointer"}}>
+                {row.getVisibleCells().map(visibleCell => (
+                    <td key={visibleCell.id}>
+                        {flexRender(visibleCell.column.columnDef.cell, visibleCell.getContext())}
+                    </td>
+                ))}
+            </tr>
+        ))}
         </tbody>
     </Table>
-}
-
-function retrieveQuanta() {
-    return Promise.all(jsonDataList.map(async jsonQuantum => {
-        const videoId = extractVideoIdFromUrl(jsonQuantum.videoUrl);
-        const startTemporal = parseTimeStringToDuration(jsonQuantum.start);
-        const endTemporal = parseTimeStringToDuration(jsonQuantum.end);
-        return {
-            ...(await parseVodDataJson(`stream-data/${videoId}.info.json`) ?? {}),
-            uuid: jsonQuantum.uuid,
-            clipTitle: jsonQuantum.title,
-            videoUrl: jsonQuantum.videoUrl,
-            start: jsonQuantum.start,
-            startSeconds: startTemporal.total("seconds"),
-            end: jsonQuantum.end,
-            endSeconds: endTemporal.total("seconds"),
-            duration: parseDurationToTimeString(endTemporal.subtract(startTemporal)),
-            tags: jsonQuantum.tags,
-        }
-    })).then(researchQuanta => researchQuanta.map(researchQuantum => {
-        return {
-            vodTitle: researchQuantum.title ?? extractVideoIdFromUrl(researchQuantum.videoUrl),
-            vodFriendlyDate: researchQuantum.releaseTimestamp 
-                ? Temporal.Instant
-                    .fromEpochSeconds(researchQuantum.releaseTimestamp)
-                    .toZonedDateTimeISO("UTC")
-                    .toPlainDate()
-                    .toString()
-                : "N/A",
-            ...researchQuantum,
-        } as NewResearchQuantum
-    }))
 }
 
 export default DataTable;
