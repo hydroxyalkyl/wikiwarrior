@@ -18,7 +18,7 @@ function isValidRawVodData(data: unknown): data is RawVodData {
     );
 }
 
-export interface VODData {
+export interface VODMetadata {
     id: string;
     title: string;
     duration: number;
@@ -36,31 +36,24 @@ export function extractVideoIdFromUrl(videoUrl: string): string {
     return match[1];
 }
 
-export async function parseVodDataJson(path: string): Promise<VODData | null> {
-    try {
-        const response = await fetch(path);
+export async function parseVodDataJson(path: string): Promise<VODMetadata> {
+    const response = await fetch(path);
 
-        if (!response.ok) {
-            console.error(`Failed to load file from ${path}, status: ${response.status}`);
-            return null;
-        }
+    if (!response.ok) {
+        throw new Error(`Failed to load file from ${path}, status: ${response.status}`);
+    }
 
-        const jsonRepr: unknown = await response.json();
+    const jsonRepr: unknown = await response.json();
 
-        if (isValidRawVodData(jsonRepr)) {
-            // Map release_timestamp to releaseTimestamp
-            return {
-                id: jsonRepr.id,
-                title: jsonRepr.title,
-                duration: jsonRepr.duration,
-                releaseTimestamp: jsonRepr.release_timestamp, // Map snake_case to camelCase
-            };
-        } else {
-            console.error('Invalid VOD data structure in JSON file');
-            return null;
-        }
-    } catch (error) {
-        console.error(`Error loading or parsing JSON from ${path}:`, error);
-        return null;
+    if (isValidRawVodData(jsonRepr)) {
+        // Map release_timestamp to releaseTimestamp
+        return {
+            id: jsonRepr.id,
+            title: jsonRepr.title,
+            duration: jsonRepr.duration,
+            releaseTimestamp: jsonRepr.release_timestamp, // Map snake_case to camelCase
+        };
+    } else {
+        throw new Error("Invalid VOD data structure in JSON file");
     }
 }
